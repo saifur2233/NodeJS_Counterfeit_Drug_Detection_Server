@@ -30,3 +30,17 @@ exports.addDrug = catchAsync(async (req, res, next) => {
     .then((drug) => res.status(201).json({ drug }))
     .catch((error) => res.status(500).json({ error }));
 });
+
+exports.getAllDrugs = catchAsync(async (req, res, next) => {
+  return Drug.find()
+    .then((drugs) => res.status(200).json({ drugs }))
+    .catch((error) => res.status(500).json({ error }));
+});
+
+exports.searchDrugByDrugCode = catchAsync(async (req, res, next) => {
+  const drugCode = req.params.drugCode;
+
+  return Drug.find({ drugCode }, { _id: 0 })
+    .then((drug) => res.status(200).json({ drug }))
+    .catch((error) => res.status(500).json({ error }));
+});
