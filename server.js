@@ -6,6 +6,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const authRouter = require("./routes/authRoutes");
 const menufacturerRoute = require("./routes/menufacturerRoute");
+const customerRoute = require("./routes/customerRoute");
 let { PythonShell } = require("python-shell");
 
 const app = express();
@@ -45,6 +46,8 @@ app.get("/", function (req, res) {
   res.send("Hello World!");
 });
 
+// customer route
+app.use("/api/v1", customerRoute);
 // admin auth route
 app.use("/api/v1", authRouter);
 // menufacturer route
