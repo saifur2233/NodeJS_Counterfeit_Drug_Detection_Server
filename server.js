@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const authRouter = require("./routes/authRoutes");
 const menufacturerRoute = require("./routes/menufacturerRoute");
 const customerRoute = require("./routes/customerRoute");
+const userAuthRoute = require("./routes/userAuthRoutes");
 let { PythonShell } = require("python-shell");
 
 const app = express();
@@ -50,6 +51,8 @@ app.get("/", function (req, res) {
 app.use("/api/v1", customerRoute);
 // admin auth route
 app.use("/api/v1", authRouter);
+// user auth route
+app.use("/api/v1", userAuthRoute);
 // menufacturer route
 app.use("/api/v1", menufacturerRoute);
 
