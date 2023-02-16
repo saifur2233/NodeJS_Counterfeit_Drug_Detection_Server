@@ -8,6 +8,9 @@ const authRouter = require("./routes/authRoutes");
 const menufacturerRoute = require("./routes/menufacturerRoute");
 const customerRoute = require("./routes/customerRoute");
 const userAuthRoute = require("./routes/userAuthRoutes");
+const adminRoute = require("./routes/adminRoute");
+const drugsupplyreqRoute = require("./routes/DrugSupplyReqRoute");
+
 let { PythonShell } = require("python-shell");
 
 const app = express();
@@ -51,10 +54,14 @@ app.get("/", function (req, res) {
 app.use("/api/v1", customerRoute);
 // admin auth route
 app.use("/api/v1", authRouter);
+// admin route
+app.use("/api/v1", adminRoute);
 // user auth route
 app.use("/api/v1", userAuthRoute);
 // menufacturer route
 app.use("/api/v1", menufacturerRoute);
+// DrugSupplyReq route
+app.use("/api/v1", drugsupplyreqRoute);
 
 // Error handling
 app.use("*", (req, res, next) => {
