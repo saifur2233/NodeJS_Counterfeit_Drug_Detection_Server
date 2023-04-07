@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const config = require("./dbconfig/config");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const authRouter = require("./routes/authRoutes");
+const adminAuthRoute = require("./routes/adminAuthRoute");
 const menufacturerRoute = require("./routes/menufacturerRoute");
 const customerRoute = require("./routes/customerRoute");
 const userAuthRoute = require("./routes/userAuthRoutes");
@@ -53,7 +53,7 @@ app.get("/", function (req, res) {
 // customer route
 app.use("/api/v1", customerRoute);
 // admin auth route
-app.use("/api/v1", authRouter);
+app.use("/api/v1", adminAuthRoute);
 // admin route
 app.use("/api/v1", adminRoute);
 // user auth route

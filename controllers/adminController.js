@@ -1,6 +1,13 @@
 const AppError = require("../utils/appError");
 const catchAsync = require("../utils/catchAsync");
 const User = require("../models/User");
+const Admin = require("../models/Admin");
+
+exports.getAllAdmin = catchAsync(async (req, res, next) => {
+  return Admin.find()
+    .then((admin) => res.status(200).json({ admin }))
+    .catch((error) => res.status(500).json({ error }));
+});
 
 exports.getAllMenufacturer = catchAsync(async (req, res, next) => {
   const userType = "Menufacturer";

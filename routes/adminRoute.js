@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const adminController = require("../controllers/adminController");
 
+router.get("/admin/alladmin", adminController.getAllAdmin);
 router.get("/admin/allmenufacturer", adminController.getAllMenufacturer);
 router.get("/admin/alldistributor", adminController.getAllDistributor);
 router.get("/admin/allretailer", adminController.getAllRetailer);
